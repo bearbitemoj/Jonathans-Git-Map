@@ -2,70 +2,66 @@
 ##Step 1-2##
 ############
 loglike=function(x, theta){
-  result = log(theta*exp(-theta*x))
+  n = length(x)
+  result = n*log(theta)-theta*sum(x)
+  return(result)
 }
 
 data = read.csv2('machines.csv')
-Xdata = as.vector(data)
-Ydata = Xdata[1:6,1]
-L = loglike(Xdata, theta=1:10) #theta > 0
-
+Xdata = t(as.vector(data))
+Ydata = (as.vector(Xdata[1:6]))
+Xdata = t(Xdata)
 Xindex = matrix(nrow=201, ncol=2)
 i = 1
 
-for(theta in seq(80,100,0.1)){
+for(theta in seq(0,2,0.01)){
   Xindex[i,2] = theta
-  Xindex[i,1]= max(loglike(Xdata,theta))
+  Xindex[i,1]= (loglike(Xdata,theta))
   i = i + 1
 }
 
-#which.max(Xindex[,1])
+optThetaX = Xindex[which.max(Xindex[,1]),2]
 
-Yindex = matrix(nrow=201, ncol=2)
-i = 1
-for(theta in seq(10,30,0.1)){
-  Yindex[i,2] = theta
-  Yindex[i,1]= max(loglike(Ydata,theta))
-  i = i + 1
-}
-
-#which.max(Yindex[,1])
 plot(Xindex[,2],Xindex[,1], type="l", col="blue", xlab="theta", ylab="Value"
-     ,main="Dependence of Log-likelihood on theta for the entire data") #Theta = 88.7 is optimal
-abline(v=88.7,col="green")
+     ,main="Dependence of Log-likelihood on theta for the entire data") #Theta = 0.02 is optimal
+abline(v=optThetaX,col="green")
 ############
 ###Step 3###
 ############
 
-Xindex = matrix(nrow=900, ncol=2)
-Yindex = matrix(nrow=900, ncol=2)
+Xindex = matrix(nrow=200, ncol=2)
+Yindex = matrix(nrow=200, ncol=2)
 i = 0
-for(theta in seq(0,90,0.1)){
+for(theta in seq(0,2,0.01)){
   Xindex[i,2] = theta
-  Xindex[i,1]= max(loglike(Xdata,theta))
+  Xindex[i,1]= (loglike(Xdata,theta))
   Yindex[i,2] = theta
-  Yindex[i,1]= max(loglike(Ydata,theta))
+  Yindex[i,1]= (loglike(Ydata,theta))
   i = i + 1
 }
 
-plot(Xindex[1:i-1,2],Xindex[1:i-1,1], type="l", col="blue", xlab="theta", ylab="Value",xlim=c(0,90)
-     ,ylim=c(-3,4)) #Theta = 88.7 is optimal
-abline(v=88.7,col="green")
-par(new=TRUE)
-plot(Yindex[1:i-1,2],Yindex[1:i-1,1], type="l", col="orange", xlab = "", ylab = "",xlim=c(0,90)
-     ,ylim=c(-3,4),main="Dependence of Log-likelihood on theta") #Theta = 18.5 is optimal
-abline(v=18.5,col="red")
+optThetaY = Yindex[which.max(Yindex[,1]),2]
 
-#plot(1:48,L[1:48,1], xlab="Length",ylab="Index",col="blue")
-#points(1:6,L[1:6,1], col="orange")
+plot(Xindex[1:i-1,2],Xindex[1:i-1,1], type="l", col="blue", xlab="theta", ylab="Value",xlim=c(0,2)
+     ,ylim=c(-60,0)) #Theta = 0.02 is optimal
+abline(v=optThetaX ,col="green")
+par(new=TRUE)
+plot(Yindex[1:i-1,2],Yindex[1:i-1,1], type="l", col="orange", xlab = "", ylab = "",xlim=c(0,2)
+     ,ylim=c(-60,0),main="Dependence of Log-likelihood on theta") #Theta = 1.79 is optimal
+abline(v=optThetaY,col="red")
+
+
 
 ############
 ###Step 4###
 ############
-bayesmodel=function(x,theta){
+bayesmodel=function(theta){
   lambda=10
-  log(theta*exp(-theta*x)*lambda*exp(-lambda*theta))
-
+  
+  X = loglike(Xdata,theta)
+  Y = loglike(theta,lambda)
+  result = X+Y
+  return(result)
   }
 #thetaIndex = array(1000)
 index2 = matrix(nrow=101, ncol=2)
@@ -73,25 +69,28 @@ index2 = matrix(nrow=101, ncol=2)
 j = 1
 for(theta in seq(0,1,0.01)){
   index2[j,2] = theta
-  index2[j,1]= max(bayesmodel(Xdata,theta))
+  index2[j,1]= bayesmodel(theta)
   j = j + 1
 }
+optTheta = index2[which.max(index2[,1]),2]
 plot(index2[,2],index2[,1], type = "l", col="blue", xlab="theta", ylab="Value"
-     , main="Dependence of L(theta)") #Theta = 0.1 is optimal
-abline(v=0.1,col="green")
-l = bayesmodel(Xdata,seq(0,10,0.01))
-#plot(1:48,l[1:48,1], ylab="theta", xlab="Length", col="blue")
+     , main="Dependence of L(theta)") #Theta = 0.02 is optimal
+abline(v=optTheta,col="green")
 
 ############
 ###Step 5###
 ############
-theta = 88.7
+theta = optThetaX
+set.seed(12345)
 newData = rexp(50,theta)
 
 oldData = data.matrix(data)
-oldHist = hist(oldData, plot = TRUE, col = "blue", xlab="Length",main="Histogram of Old data")
+newData = data.matrix(newData)
 
-newHist = hist(newData, plot = TRUE, col="orange", xlab="Index",main="Histogram of new data")
+oldHist = hist(oldData, plot = TRUE, col = "blue", xlab="Length"
+               ,main="Histogram of Old data",xlim = c(0,7),ylim= c(0,35))
+newHist = hist(newData, plot = TRUE, col="orange", xlab="Length"
+               ,main="Histogram of New data",xlim = c(0,7),ylim= c(0,35))
 
 
 
