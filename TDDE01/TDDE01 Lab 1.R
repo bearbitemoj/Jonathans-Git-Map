@@ -93,6 +93,7 @@ missclass2 = missclass(test$Spam,pred2)
 ############
 ###Step 5###
 ############
+library(kknn)
 model = kknn(as.factor(Spam)~., train, test, k=5)
 kknnPred = model$prob
 

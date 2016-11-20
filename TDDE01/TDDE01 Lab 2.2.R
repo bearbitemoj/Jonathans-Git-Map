@@ -86,7 +86,7 @@ plot(lasso,xvar="lambda",label=TRUE)
 ###Step 7###
 ############
 model=cv.glmnet(X,Y, alpha=1,family="gaussian")
-model$lambda.min
+model$lambda.min #58 variables
 plot(model)
 coef(model, s="lambda.min")
 
