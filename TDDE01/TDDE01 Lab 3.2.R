@@ -38,18 +38,18 @@ missclass(tree_pred,test[,20]) #Missclassification error rate = 0.268
 ###Step 3###
 ############
 trainScore=rep(0,9)
-testScore=rep(0,9)
+validScore=rep(0,9)
 for(i in 2:9) {
   prunedTree=prune.tree(tree_model,best=i)
   pred=predict(prunedTree, newdata=valid,
                type="tree")
   trainScore[i]=deviance(prunedTree)
-  testScore[i]=deviance(pred)
+  validScore[i]=deviance(pred)
 }
 plot(2:9, trainScore[2:9], type="b", col="red",xlab="Number of Leaves",ylab="Deviance",ylim=c(270,560))
-legend("topright", legend=c("Training Data","Test Data"), lty=c(1,1),col=c("red","blue"),bg="white",lwd=1)
+legend("topright", legend=c("Training Data","Validation Data"), lty=c(1,1),col=c("red","blue"),bg="white",lwd=1)
 par(new=TRUE)
-plot(2:9, testScore[2:9], type="b", col="blue", ylim=c(270,560),xlab="",ylab="")
+plot(2:9, validScore[2:9], type="b", col="blue", ylim=c(270,560),xlab="",ylab="")
 
 ## Pruning at 5/6 or 8
 finalTree=prune.tree(tree_model, best=4)
@@ -114,12 +114,6 @@ for(i in 1:dim(Yfit)[1]){
 
 naiveTableTest2 = table(Ypred,test$good_bad)
 missclass(Ypred,test[,20]) #Missclassification error rate = 0.492
-
-
-
-
-
-
 
 
 
