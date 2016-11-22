@@ -5,7 +5,7 @@
 data = read.csv('australian-crabs.csv')
 ## Enhanced Scatter Plot
 library(car) 
-scatterplot(RW ~ CL | sex, data=data, main="Scatter Plot", labels=row.names(data),reg.line=FALSE, smoother=FALSE)
+scatterplot(RW ~ CL | sex, data=data, main="Scatter Plot", labels=row.names(data),reg.line=FALSE, smoother=FALSE,pch = c(1, 1))
 
 ############
 ##Step 2-3##
@@ -45,8 +45,8 @@ res = res1-res2
 # classification
 d=res[1]*X[,2]+res[2]*X[,3]+res[3]
 Yfit=(d>0)
-plot(X[,3], X[,2], col=Yfit+1, xlab="CL", ylab="RW",main="Scatter Plot with LDA")
-abline(h=seq(0,20,2), v=seq(0,50,5), col="azure3")
+plot(X[,3], X[,2], col=Yfit+1, xlab="CL", ylab="RW",main="Scatter Plot with LDA",panel.first = 
+       c(abline(h=seq(0,20,2), v=seq(0,50,5), col="azure3")))
 
 #MISSING: use 'res' to plot decision boundary. 
 slope=-res[2]/res[1]
@@ -62,8 +62,8 @@ slopeGlm = -glmfit$coefficients[3]/glmfit$coefficients[2]
 interceptGlm = -glmfit$coefficients[1]/glmfit$coefficients[2]
 dGlm = predict(glmfit,data=data)
 YfitGlm = (dGlm>0)
-plot(X[,3], X[,2], col=YfitGlm+1, xlab="CL", ylab="RW",main="Scatter Plot with logistic regression")
-abline(h=seq(0,20,2), v=seq(0,50,5), col="azure3")
+plot(X[,3], X[,2], col=YfitGlm+1, xlab="CL", ylab="RW",main="Scatter Plot with logistic regression",panel.first = 
+       c(abline(h=seq(0,20,2), v=seq(0,50,5), col="azure3")))
 abline(interceptGlm,slopeGlm)
 
 
