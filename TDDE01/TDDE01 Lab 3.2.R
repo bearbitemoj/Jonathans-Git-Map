@@ -52,7 +52,7 @@ par(new=TRUE)
 plot(2:9, testScore[2:9], type="b", col="blue", ylim=c(270,560),xlab="",ylab="")
 
 ## Pruning at 5/6 or 8
-finalTree=prune.tree(tree_model, best=8)
+finalTree=prune.tree(tree_model, best=4)
 Yfit=predict(finalTree, newdata=valid,
              type="class")
 table(valid$good_bad,Yfit)
@@ -63,7 +63,7 @@ text(finalTree,pretty=0)
 summary(finalTree)
 
 tree_pred = predict(finalTree,test,type="class")
-missclass(tree_pred,test[,20]) #Missclassification error rate = 0.288
+missclass(tree_pred,test[,20]) #Missclassification error rate = 0.256
 
 ############
 ###Step 4###
@@ -83,13 +83,37 @@ naiveTableTest = table(Yfit,test$good_bad)
 ############
 ###Step 5###
 ############
-loss=matrix(c(0,10,1,0),nrow=2,ncol=2)
-naive_model2=naiveBayes(good_bad~., data=train, threshold=loss[1,2]/loss[2,1])
-Yfit=predict(naive_model2, newdata=train)
-naiveTableTrain2 = table(Yfit,train$good_bad)
-Yfit=predict(naive_model2, newdata=test)
-naiveTableTest2 = table(Yfit,test$good_bad)
+naive_model2=naiveBayes(good_bad~., data=train)
+Yfit=predict(naive_model2, newdata=train, type="raw")    #Our C
 
+Ypred = vector(length=dim(Yfit)[1])
+for(i in 1:dim(Yfit)[1]){
+  c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
+  c.good = Yfit[i,1]*0 + Yfit[i,2]*1
+  if(c.good <= c.bad){
+    Ypred[i] = "good"
+  }else{
+    Ypred[i] = "bad"
+  }
+}
+
+naiveTableTrain2 = table(Ypred,train$good_bad)
+missclass(Ypred,train[,20]) #Missclassification error rate = 0.454
+
+Yfit=predict(naive_model2, newdata=test, type="raw")
+Ypred = vector(length=dim(Yfit)[1])
+for(i in 1:dim(Yfit)[1]){
+  c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
+  c.good = Yfit[i,1]*0 + Yfit[i,2]*1
+  if(c.good <= c.bad){
+    Ypred[i] = "good"
+  }else{
+    Ypred[i] = "bad"
+  }
+}
+
+naiveTableTest2 = table(Ypred,test$good_bad)
+missclass(Ypred,test[,20]) #Missclassification error rate = 0.492
 
 
 

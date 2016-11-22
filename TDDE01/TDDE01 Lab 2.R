@@ -4,11 +4,11 @@
 ############
 #linear regression
 mylin=function(X,Y,Xpred){
-  Xpred1=cbind(1,Xpred)
+  Xpred1=cbind(1,Xpred)     #Do this to be able to multiply with our constant in the model
   X = cbind(1,X)
   #MISSING: check formulas for linear regression and compute beta
   beta = solve(t(X)%*%X)%*%t(X)%*%Y
-  Res=Xpred1%*%beta
+  Res=Xpred1%*%beta         #We multiply with Xpred1 because we want the predicted values
   return(Res)
 }
 
@@ -36,7 +36,7 @@ myCV=function(X,Y,Nfolds){
             if (sum(model)==0) next()
             SSE=0
             
-            folds = cut(seq(1,nrow(X1)),breaks=Nfolds,labels=FALSE)
+            folds = cut(seq(1,nrow(X1)),breaks=Nfolds,labels=FALSE)      #Create folds
             for (k in 1:Nfolds){
               #MISSING: compute which indices should belong to current fold
               testIndexes = which(folds==k,arr.ind=TRUE)
