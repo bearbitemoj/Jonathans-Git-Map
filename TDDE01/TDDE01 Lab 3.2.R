@@ -91,14 +91,14 @@ for(i in 1:dim(Yfit)[1]){
   c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
   c.good = Yfit[i,1]*0 + Yfit[i,2]*1
   if(c.good <= c.bad){
-    Ypred[i] = "good"
-  }else{
     Ypred[i] = "bad"
+  }else{
+    Ypred[i] = "good"
   }
 }
 
-naiveTableTrain2 = table(Ypred,train$good_bad)
-missclass(Ypred,train[,20]) #Missclassification error rate = 0.454
+naiveTableTrain2 = table(train$good_bad,Ypred)
+missclass(Ypred,train[,20]) #Missclassification error rate = 0.546
 
 Yfit=predict(naive_model2, newdata=test, type="raw")
 Ypred = vector(length=dim(Yfit)[1])
@@ -106,14 +106,14 @@ for(i in 1:dim(Yfit)[1]){
   c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
   c.good = Yfit[i,1]*0 + Yfit[i,2]*1
   if(c.good <= c.bad){
-    Ypred[i] = "good"
-  }else{
     Ypred[i] = "bad"
+  }else{
+    Ypred[i] = "good"
   }
 }
 
-naiveTableTest2 = table(Ypred,test$good_bad)
-missclass(Ypred,test[,20]) #Missclassification error rate = 0.492
+naiveTableTest2 = table(test$good_bad,Ypred)
+missclass(Ypred,test[,20]) #Missclassification error rate = 0.508
 
 
 

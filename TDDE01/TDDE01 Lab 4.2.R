@@ -20,10 +20,9 @@ plot(res$x[,1], res$x[,2],ylab="PC2",xlab="PC1") #a plot of the scores in the co
 ############
 ###Step 2###
 ############
-for(i in 1:126){
-plot(U[,i],main="Traceplot, PC"+i,ylab = "PC"+i)
-plot(U[,i],main="Traceplot, PC"+i,ylab = "PC"+i)
-}
+plot(U[,1],main="Traceplot, PC1",ylab = "PC1")
+plot(U[,2],main="Traceplot, PC2",ylab = "PC2")
+plot(U[,3],main="Traceplot, PC3",ylab = "PC3")
 
 
 ############

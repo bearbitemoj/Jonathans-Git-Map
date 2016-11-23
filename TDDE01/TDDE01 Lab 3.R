@@ -61,6 +61,7 @@ glmfit = glm(formula = sex ~ RW + CL,data=data, family = binomial())
 slopeGlm = -glmfit$coefficients[3]/glmfit$coefficients[2]
 interceptGlm = -glmfit$coefficients[1]/glmfit$coefficients[2]
 dGlm = predict(glmfit,data=data)
+#dGlm=glmfit$coefficients[2]*X[,2]+glmfit$coefficients[3]*X[,3]+glmfit$coefficients[1]
 YfitGlm = (dGlm>0)
 plot(X[,3], X[,2], col=YfitGlm+1, xlab="CL", ylab="RW",main="Scatter Plot with logistic regression",panel.first = 
        c(abline(h=seq(0,20,2), v=seq(0,50,5), col="azure3")))
