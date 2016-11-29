@@ -61,7 +61,6 @@ points(reorderedData$MET,e$point[1,], type="l", col="blue")
 ############
 ###Step 4###
 ############
-#mle=lm(EX~MET, data=reorderedData)
 mle = cv.tree_model.pruned
 rng=function(data, mle) {
   data1=data.frame(EX=data$EX,MET=data$MET)
