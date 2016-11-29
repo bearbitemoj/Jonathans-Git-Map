@@ -69,6 +69,16 @@ setClassif=function(prob,lim){
 }
 
 #### K = 5
+nearest<-knearest(data = train, K=5, newdata = train)
+pred = vector(length = length(nearest))
+
+for(i in 1:length(nearest)){
+  pred[i] = setClassif(nearest[i],0.5) 
+}
+
+table1train = table(train$Spam,pred)
+missclass1train = missclass(train$Spam,pred)
+
 nearest<-knearest(data = train, K=5, newdata = test)
 pred = vector(length = length(nearest))
 
@@ -79,7 +89,19 @@ for(i in 1:length(nearest)){
 table1 = table(test$Spam,pred)
 missclass1 = missclass(test$Spam,pred)
 
+
 #### K = 1
+nearest2<-knearest(data = train, K=1, newdata = train)
+pred2 = vector(length = length(nearest))
+
+for(i in 1:length(nearest2)){
+  pred2[i] = setClassif(nearest2[i], 0.5) 
+}
+
+table2train = table(train$Spam,pred2)
+missclass2train = missclass(train$Spam,pred2)
+
+
 nearest2<-knearest(data = train, K=1, newdata = test)
 pred2 = vector(length = length(nearest))
 
@@ -102,7 +124,6 @@ for(i in 1:length(kknnPred)){
 }
 
 table3 = table(test$Spam,kknnPred[,2])
-table3t = table(train$Spam,kknnPred[,2])
 missclass3 = missclass(test$Spam,kknnPred[,2])
 ############
 ###Step 6###

@@ -37,19 +37,19 @@ missclass(tree_pred,test[,20]) #Missclassification error rate = 0.268
 ############
 ###Step 3###
 ############
-trainScore=rep(0,9)
-validScore=rep(0,9)
-for(i in 2:9) {
+trainScore=rep(0,15)
+validScore=rep(0,15)
+for(i in 2:15) {
   prunedTree=prune.tree(tree_model,best=i)
   pred=predict(prunedTree, newdata=valid,
                type="tree")
   trainScore[i]=deviance(prunedTree)
   validScore[i]=deviance(pred)
 }
-plot(2:9, trainScore[2:9], type="b", col="red",xlab="Number of Leaves",ylab="Deviance",ylim=c(270,560))
+plot(2:15, trainScore[2:15], type="b", col="red",xlab="Number of Leaves",ylab="Deviance",ylim=c(270,560))
 legend("topright", legend=c("Training Data","Validation Data"), lty=c(1,1),col=c("red","blue"),bg="white",lwd=1)
 par(new=TRUE)
-plot(2:9, validScore[2:9], type="b", col="blue", ylim=c(270,560),xlab="",ylab="")
+plot(2:15, validScore[2:15], type="b", col="blue", ylim=c(270,560),xlab="",ylab="")
 
 ## Pruning at 5/6 or 8
 finalTree=prune.tree(tree_model, best=4)
@@ -74,10 +74,10 @@ naive_model=naiveBayes(good_bad~., data=train)
 naive_model
 Yfit=predict(naive_model, newdata=train)
 missclass(Yfit,train[,20]) #Missclassification error rate = 0.3
-naiveTableTrain = table(Yfit,train$good_bad)
+naiveTableTrain = table(train$good_bad, Yfit)
 Yfit=predict(naive_model, newdata=test)
 missclass(Yfit,test[,20]) #Missclassification error rate = 0.316
-naiveTableTest = table(Yfit,test$good_bad)
+naiveTableTest = table(test$good_bad,Yfit)
 
 
 ############
@@ -88,32 +88,32 @@ Yfit=predict(naive_model2, newdata=train, type="raw")    #Our C
 
 Ypred = vector(length=dim(Yfit)[1])
 for(i in 1:dim(Yfit)[1]){
-  c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
-  c.good = Yfit[i,1]*0 + Yfit[i,2]*1
+  c.bad = Yfit[i,1]*1 + Yfit[i,2]*0
+  c.good = Yfit[i,1]*0 + Yfit[i,2]*10
   if(c.good <= c.bad){
-    Ypred[i] = "bad"
-  }else{
     Ypred[i] = "good"
+  }else{
+    Ypred[i] = "bad"
   }
 }
 
 naiveTableTrain2 = table(train$good_bad,Ypred)
-missclass(Ypred,train[,20]) #Missclassification error rate = 0.546
+missclass(Ypred,train[,20]) #Missclassification error rate = 0.726
 
 Yfit=predict(naive_model2, newdata=test, type="raw")
 Ypred = vector(length=dim(Yfit)[1])
 for(i in 1:dim(Yfit)[1]){
-  c.bad = Yfit[i,1]*10 + Yfit[i,2]*0
-  c.good = Yfit[i,1]*0 + Yfit[i,2]*1
+  c.bad = Yfit[i,1]*1 + Yfit[i,2]*0
+  c.good = Yfit[i,1]*0 + Yfit[i,2]*10
   if(c.good <= c.bad){
-    Ypred[i] = "bad"
-  }else{
     Ypred[i] = "good"
+  }else{
+    Ypred[i] = "bad"
   }
 }
 
 naiveTableTest2 = table(test$good_bad,Ypred)
-missclass(Ypred,test[,20]) #Missclassification error rate = 0.508
+missclass(Ypred,test[,20]) #Missclassification error rate = 0.712
 
 
 

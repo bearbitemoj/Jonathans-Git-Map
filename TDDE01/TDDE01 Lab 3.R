@@ -53,7 +53,8 @@ slope=-res[2]/res[1]
 intercept = -res[3]/res[1]  #Think y = mx + b, where m = slope and b = intercept
 abline(intercept,slope)
 
-
+scatterplot(RW ~ CL | sex, data=data, main="Scatter Plot with Decision Boundary from LDA", labels=row.names(data),reg.line=FALSE, smoother=FALSE,pch = c(1, 1))
+abline(intercept,slope)
 ############
 ###Step 4###
 ############
