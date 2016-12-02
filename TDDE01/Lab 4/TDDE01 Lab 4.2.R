@@ -34,14 +34,11 @@ set.seed(12345)
 # a)
 a = fastICA(data1, 2, alg.typ = "parallel", fun = "logcosh", alpha = 1,
         method = "R", row.norm = FALSE, maxit = 200, tol = 0.0001, verbose = TRUE) #ICA
+
 W_dot = a$K %*% a$W
-<<<<<<< HEAD
+
 plot(W_dot[,1], main="Traceplot of W'",ylab="Column 1 of W'")
 plot(W_dot[,2], main="Traceplot of W'",ylab="Column 2 of W'")
-=======
-plot(W_dot[,1], main="Traceplot of W'",ylab="W'")
-plot(W_dot[,2], main="Traceplot of W'",ylab="W'")
->>>>>>> 3062787d84d77252a9b6a97fdfd67a0b6e460f9d
 
 # b)
 plot(a$S[,1], a$S[,2],ylab="Independent Component 2",xlab="Independent Component 1") 
