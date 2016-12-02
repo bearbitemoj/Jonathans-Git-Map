@@ -41,9 +41,10 @@ f=function(data, ind){
   res=tree(EX~MET, data=data1) #fit tree model
   
   #predict values for all MET values from the original data
-  EXP=predict(res,newdata=reorderedData)
+  EXP=predict(prune.tree(res, best=best.size),newdata=reorderedData)
   return(EXP)
 }
+set.seed(12345)
 res=boot(reorderedData, f, R=1000) #make bootstrap
 
 e=envelope(res) #compute confidence bands
@@ -75,14 +76,23 @@ f1=function(data1){
   res=tree(EX~MET, data=data1) #fit tree model
   
   #predict values for all MET values from the original data
-  EXP=predict(res,newdata=reorderedData)
+  EXP=predict(prune.tree(res, best=best.size),newdata=reorderedData)
   n=length(reorderedData$EX)
   predictedEXP=rnorm(n,EXP, sd(residuals(mle)))
   return(predictedEXP)
 }
 
+f2=function(data1){
+  res=tree(EX~MET, data=data1) #fit tree model
+  #predict values for all Area values from the original data
+  EXP=predict(prune.tree(res, best=best.size),newdata=reorderedData)
+  return(EXP)
+}
+
+set.seed(12345)
 res=boot(reorderedData, statistic=f1, R=10000, mle=mle,ran.gen=rng, sim="parametric") #make bootstrap
-res2=boot(reorderedData, statistic=f, R=1000, mle=mle,ran.gen=rng, sim="parametric") #make bootstrap
+set.seed(12345)
+res2=boot(reorderedData, statistic=f2, R=1000, mle=mle,ran.gen=rng, sim="parametric") #make bootstrap
 
 e=envelope(res) #compute prediction bands
 e2=envelope(res2) #compute confidence bands

@@ -10,7 +10,7 @@ lambda=res$sdev^2 #eigenvalues
 
 #proportion of variation
 sprintf("%2.3f",lambda/sum(lambda)*100)
-screeplot(res)
+screeplot(res,main="Screeplot",xlab="Principal Components")
 
 U=res$rotation #Rotation of the PCA:s
 head(U) 
@@ -32,14 +32,14 @@ set.seed(12345)
 #See 4a PPT. 28-31
 
 # a)
-a = fastICA(data, 2, alg.typ = "parallel", fun = "logcosh", alpha = 1,
+a = fastICA(data1, 2, alg.typ = "parallel", fun = "logcosh", alpha = 1,
         method = "R", row.norm = FALSE, maxit = 200, tol = 0.0001, verbose = TRUE) #ICA
 W_dot = a$K %*% a$W
-plot(W_dot[,1], main="Traceplot of W'")
-plot(W_dot[,2], main="Traceplot of W'")
+plot(W_dot[,1], main="Traceplot of W'",ylab="Column 1 of W'")
+plot(W_dot[,2], main="Traceplot of W'",ylab="Column 2 of W'")
 
 # b)
-plot(a$S[,2], a$S[,1],ylab="PC2",xlab="PC1") 
+plot(a$S[,1], a$S[,2],ylab="Independent Component 2",xlab="Independent Component 1") 
 
 
 ############
@@ -47,11 +47,9 @@ plot(a$S[,2], a$S[,1],ylab="PC2",xlab="PC1")
 ############
 library(pls)
 pcr.fit=pcr(Viscosity~., data=data, validation="CV")
-summary(pcr.fit)
+#summary(pcr.fit)
 validationplot(pcr.fit,val.type="MSEP")
-
-
-
+abline(v=24,lty=2,col="blue") #Marks how many components gives the lowest MSEP
 
 
 
