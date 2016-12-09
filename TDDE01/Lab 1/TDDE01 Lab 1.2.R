@@ -64,10 +64,10 @@ bayesmodel=function(theta){
   return(result)
   }
 #thetaIndex = array(1000)
-index2 = matrix(nrow=101, ncol=2)
+index2 = matrix(nrow=201, ncol=2)
 
 j = 1
-for(theta in seq(0,1,0.01)){
+for(theta in seq(0,2,0.01)){
   index2[j,2] = theta
   index2[j,1]= bayesmodel(theta)
   j = j + 1

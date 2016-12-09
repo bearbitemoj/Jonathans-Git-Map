@@ -72,12 +72,14 @@ X = as.matrix(newdata)
 Y = as.matrix(data$Fat)
 
 library(glmnet)
+set.seed(12345)
 ridge = glmnet(X,Y,alpha=0,family="gaussian")
 plot(ridge,xvar="lambda",label=TRUE)
 
 ############
 ###Step 6###
 ############
+set.seed(12345)
 lasso = glmnet(X,Y,alpha=1,family="gaussian")
 plot(lasso,xvar="lambda",label=TRUE)
 
@@ -85,10 +87,11 @@ plot(lasso,xvar="lambda",label=TRUE)
 ############
 ###Step 7###
 ############
-model=cv.glmnet(X,Y, alpha=1,family="gaussian")
-model$lambda.min #58 variables
+set.seed(12345)
+model=cv.glmnet(X,Y, alpha=1,family="gaussian",lambda = seq(0,6,0.001))
+model$lambda.min 
 plot(model)
-coef(model, s="lambda.min")
+coef(model, s="lambda.min") #All variables
 
 
 
