@@ -75,12 +75,12 @@ for(i in 1:length(times)){
     ktot = ktot + k;
   }
   
-  ######## Total temperature (temperature*weight) divided by total weight
+  ######## Total temperature (temperature*weight) divided by total weight ########
   temp[i] = tempTot/ktot
 }
 
 
-plot(temp, type="o")
+plot(temp, type="o",col="blue")
 
 
 
