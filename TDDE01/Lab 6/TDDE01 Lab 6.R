@@ -14,7 +14,7 @@ MSE.nn.va = vector(length=10)
 MSE.nn.tr = vector(length=10)
 
 # Random initializaiton of the weights in the interval [-1, 1]
-set.seed(1234567890)
+#set.seed(1234567890)
 winit = runif(31,-1,1)
   for(i in 1:10) {
     nn = neuralnet(Sin~Var,tr,threshold=i/1000, hidden = 10, startweights = winit) 
