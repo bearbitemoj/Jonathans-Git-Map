@@ -16,9 +16,7 @@ mstop(cvm)
 ##Step 2-3##
 ############
 library(kernlab)
-#data = read.csv('spam.csv')
-data(spam)
-data = spam
+data = read.csv('spam.csv')
 index <- sample(1:dim(data)[1])
 train <- data[index[1:floor(dim(data)[1]/2)], ]
 test <- data[index[((ceiling(dim(data)[1]/2)) + 1):dim(data)[1]], ]
