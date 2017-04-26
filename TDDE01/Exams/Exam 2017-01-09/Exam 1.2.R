@@ -166,7 +166,7 @@ backprop = function(We, Ve, X, t, learningrate){
   
   deltaK = y - t
   
-  for(k in 1:length(a)){
+  for(k in 1:length(a2)){
     deltaJ[k] = (1-z[k]^2)*Ve[k]*deltaK
     
   }

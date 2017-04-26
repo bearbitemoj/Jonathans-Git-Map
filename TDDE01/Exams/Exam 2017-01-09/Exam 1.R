@@ -59,9 +59,9 @@ E=function(X,Y){
     Y_i = as.numeric(as.character(Y[i,]$Class))
     
     if(Y_i == 1 && p_hat[2] != 0){
-      error = error + Y_i*log(p_hat[2])
+      error = error + log(p_hat[2])
     }else if(p_hat[2] != 1){
-      error = error + (1-Y_i)*log(1-p_hat[2])
+      error = error + log(1-p_hat[2])
     }
     
   }
@@ -78,9 +78,9 @@ E_Lasso = function(X,Y,Ydata){
     Y_i = as.numeric(as.character(Ydata[i,]$Class))
     
     if(Y_i == 1 && p_hat != 0){
-      error = error + Y_i*log(p_hat)
+      error = error + log(p_hat)
     }else if(p_hat != 1){
-      error = error + (1-Y_i)*log(1-p_hat)
+      error = error + log(1-p_hat)
     }
     
   }
@@ -89,14 +89,18 @@ E_Lasso = function(X,Y,Ydata){
 
 error1 = E(tree_model,test)
 error2 = E(tree_model2,test)
-error3 = E_Lasso(model,x_test,test)
+error3 = E(cv.tree_model.pruned,test)
+error4 = E_Lasso(model,x_test,test)
+
 
 if(error1<error2){
   'First model is Best'
 }else if(error2<error3){
   'Second model is Best'
-}else{
+}else if(error3<error4){
   'Third model is Best'
+}else{
+  'Fourth model is Best'
 }
 
 
