@@ -8,9 +8,7 @@ function [ Y, L ] = runSingleLayer(X, W)
 %               Y = Output for each feature, (matrix)
 %               L = The resulting label of each feature, (vector) 
 
-
-Y = W.*X;
-Y = Y(1,:)+Y(2:end,:);
+Y = W*X;
 
 % Calculate classified labels
 [~, L] = max(Y,[],1);

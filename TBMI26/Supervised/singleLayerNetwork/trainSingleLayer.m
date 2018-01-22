@@ -7,6 +7,7 @@ function [Wout, trainingError, testError ] = trainSingleLayer(Xt,Dt,Xtest,Dtest,
 %
 %   Output:
 %               Wout - Weights after training (matrix)
+%               Vout - Weights after training (matrix)
 %               trainingError - The training error for each iteration
 %                               (vector)
 %               testError - The test error for each iteration
@@ -26,17 +27,12 @@ trainingError(1) = sum(sum((Yt - Dt).^2))/Nt;
 testError(1) = sum(sum((Ytest - Dtest).^2))/Ntest;
 
 for n = 1:numIterations
-    Y = Wout.*Xt;
-    Y = Y(1,:)+Y(2:end,:);
-    grad_w = (Y-Dt).*Xt(2:end,:);
+    Y = Wout*Xt;
+    grad_w =(Y-Dt)*Xt';
     
-    Wout = [Wout(1,:); Wout(2:end,:) - learningRate*grad_w];
-    Y = Wout.*Xt;
-    Y = Y(1,:)+Y(2:end,:);
-    Ytest = Wout.*Xtest;
-    Ytest = Ytest(1,:)+Ytest(2:end,:);
-    trainingError(1+n) = sum(sum((Y - Dt).^2))/Nt;
-    testError(1+n) = sum(sum((Ytest - Dtest).^2))/Ntest;
+    Wout = Wout - learningRate*grad_w;
+    trainingError(1+n) = sum(sum((Wout*Xt - Dt).^2))/Nt;
+    testError(1+n) = sum(sum((Wout*Xtest - Dtest).^2))/Ntest;
 end
 end
 
