@@ -1,0 +1,10 @@
+When we look at the diagram (and when we run the method) 
+we see that at 2500 entries the approximate value for collision
+is 0,95 equal to 95 % chance that a collision will occur.
+
+The collsion chance will pass 0,5 = 50 % at arround
+1200 entries.
+The reason that it doesnt need 500 0000 inputs is because
+already at around 3000 input according to the graph we can see
+that the possibility of a collision are already at 0,96
+and at around 4000 inputs collision is standard procedure.
