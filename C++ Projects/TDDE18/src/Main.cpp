@@ -10,7 +10,7 @@ int main(){
 	Lab_0 lab_0;
 	Lab_1 lab_1;
 
-	lab_0.test_1();
+	lab_1.main();
 
 	return 0;
 }

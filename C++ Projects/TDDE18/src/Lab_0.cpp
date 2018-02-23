@@ -16,6 +16,9 @@ Lab_0::Lab_0(){
 
 }
 
+void Lab_0::main(){
+	test_1();
+}
 
 void Lab_0::test_1(){
 	int a;

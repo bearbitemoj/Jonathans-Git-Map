@@ -8,6 +8,7 @@ class Lab_0{
 //member functions go *inside* the class declaration
 public:
 	Lab_0();
+	void main();
 	void test_1();
 	void test_2();
 	void test_3();
