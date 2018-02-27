@@ -1,0 +1,5 @@
+Eclipse C++ installation: https://www.ntu.edu.sg/home/ehchua/programming/howto/EclipseCpp_HowTo.html
+
+Add SDL to eclipse: https://www.badprog.com/eclipse-sdl-simple-directmedia-layer-installation
+
+Add AABB to eclipse:
