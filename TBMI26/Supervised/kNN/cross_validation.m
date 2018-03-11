@@ -1,7 +1,8 @@
-function [k] = cross_validation(f,Xt,Lt)
+function [k] = cross_validation(f,k_vector,Xt,Lt)
 %CROSS_VALIDATION Calculates the cross validation of a data set
 %   Inputs:
 %               f  - number of folds
+%               k_vector - A vector with different k values to be tested
 %               Xt - Cell arrays of features
 %               Lt - Cell arrays of correct labels of each feature vector [1 2 ...]'
 %
@@ -10,7 +11,6 @@ function [k] = cross_validation(f,Xt,Lt)
 
 n = size(Xt{1},1);
 m = size(Xt{1},2);
-k_vector = [1 2 3 4 5]; % A vector with different k values to be tested
 accuracy_matrix = zeros(length(k_vector),f); % The accuracy for each permutation of folds
 X_train = zeros(n,m);
 L_train = zeros(length(Lt{1}),1);
@@ -24,8 +24,8 @@ for i=1:f
     for j=1:f        
         if(i ~= j)
             if(first_run == 1)
-                X_train(:,:) = Xt{j};
-                L_train(:) = Lt{j};
+                X_train = Xt{j};
+                L_train = Lt{j};
                 first_run = 2;
             else
                 X_train = [X_train Xt{j}];

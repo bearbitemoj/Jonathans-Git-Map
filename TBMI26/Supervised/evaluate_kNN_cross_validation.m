@@ -29,7 +29,8 @@ selectAtRandom = true; % true = select features at random, false = select the fi
 
 %% Use cross-validation to find the optimal k and Use kNN to classify data
 % Use cross-valdation to find the optimal k
-k = cross_validation(numBins,Xt,Lt)
+k_vector = [1 2 3 4 5]; % A vector with different k values to be tested
+k = cross_validation(numBins,k_vector,Xt,Lt)
 
 LkNN = kNN(Xt{2}, k, Xt{1}, Lt{1});
 
