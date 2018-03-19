@@ -1,7 +1,8 @@
-initcourse TSBB15
+%% Add path
+clear all
+addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
 
 %% Anisotropic Diffusion
-clear all
 close all
 clc
 
@@ -27,54 +28,54 @@ u = imgNoise;
 % Iterate
 for(i=1:iterations)
     
-% Compute orientation tensor
-[fx fy] = regDerivative(filter_size,sigma,u);
-T = calc_orientationTensor(filter_size2,sigma2,fx,fy);
+    % Compute orientation tensor
+    [fx fy] = regDerivative(filter_size,sigma,u);
+    T = calc_orientationTensor(filter_size2,sigma2,fx,fy);
 
-% Calculate eigenvalues
-trT = T(:,:,1)+T(:,:,3);
-detT = T(:,:,1).*T(:,:,3) - T(:,:,2).^2;
+    % Calculate eigenvalues
+    trT = T(:,:,1)+T(:,:,3);
+    detT = T(:,:,1).*T(:,:,3) - T(:,:,2).^2;
 
-lambda1 = sqrt((trT./2).^2 - detT) + trT./2;
-lambda2 = -sqrt((trT./2).^2 - detT) + trT./2;
+    lambda1 = sqrt((trT./2).^2 - detT) + trT./2;
+    lambda2 = -sqrt((trT./2).^2 - detT) + trT./2;
 
-% Calculate eigenvectors
-eigenVectors1(:,:,1) = T(:,:,2);
-eigenVectors1(:,:,2) = lambda1 - T(:,:,1);
+    % Calculate eigenvectors
+    eigenVectors1(:,:,1) = T(:,:,2);
+    eigenVectors1(:,:,2) = lambda1 - T(:,:,1);
 
-norm = sqrt(eigenVectors1(:,:,1).^2 + eigenVectors1(:,:,2).^2);
-eigenVectors1(:,:,1) = eigenVectors1(:,:,1)./norm;
-eigenVectors1(:,:,2) = eigenVectors1(:,:,2)./norm;
+    norm = sqrt(eigenVectors1(:,:,1).^2 + eigenVectors1(:,:,2).^2);
+    eigenVectors1(:,:,1) = eigenVectors1(:,:,1)./norm;
+    eigenVectors1(:,:,2) = eigenVectors1(:,:,2)./norm;
 
-eigenVectors2(:,:,1) = T(:,:,2);
-eigenVectors2(:,:,2) = lambda2 - T(:,:,1);
+    eigenVectors2(:,:,1) = T(:,:,2);
+    eigenVectors2(:,:,2) = lambda2 - T(:,:,1);
 
-norm2 = sqrt(eigenVectors2(:,:,1).^2 + eigenVectors2(:,:,2).^2);
-eigenVectors2(:,:,1) = eigenVectors2(:,:,1)./norm2;
-eigenVectors2(:,:,2) = eigenVectors2(:,:,2)./norm2;
+    norm2 = sqrt(eigenVectors2(:,:,1).^2 + eigenVectors2(:,:,2).^2);
+    eigenVectors2(:,:,1) = eigenVectors2(:,:,1)./norm2;
+    eigenVectors2(:,:,2) = eigenVectors2(:,:,2)./norm2;
 
-% Modify eigenvalues => D
-modLambda1 = exp(-lambda1/K);
-modLambda2 = exp(-lambda2/K);
+    % Modify eigenvalues => D
+    modLambda1 = exp(-lambda1/K);
+    modLambda2 = exp(-lambda2/K);
 
-D(:,:,1) = modLambda1.*eigenVectors1(:,:,1).^2 + modLambda2.*eigenVectors2(:,:,1).^2;
-D(:,:,2) = modLambda1.*eigenVectors1(:,:,1).*eigenVectors1(:,:,2) + modLambda2.*eigenVectors2(:,:,1).*eigenVectors2(:,:,2);
-D(:,:,3) = modLambda1.*eigenVectors1(:,:,2).^2 + modLambda2.*eigenVectors2(:,:,2).^2;
+    D(:,:,1) = modLambda1.*eigenVectors1(:,:,1).^2 + modLambda2.*eigenVectors2(:,:,1).^2;
+    D(:,:,2) = modLambda1.*eigenVectors1(:,:,1).*eigenVectors1(:,:,2) + modLambda2.*eigenVectors2(:,:,1).*eigenVectors2(:,:,2);
+    D(:,:,3) = modLambda1.*eigenVectors1(:,:,2).^2 + modLambda2.*eigenVectors2(:,:,2).^2;
 
-% Compute Hessian Hu
-[Fxx Fxy Fyy] = hessianDerivative(u);
-Hu(:,:,1) = Fxx;
-Hu(:,:,2) = Fxy;
-Hu(:,:,3) = Fyy;
+    % Compute Hessian Hu
+    [Fxx Fxy Fyy] = hessianDerivative(u);
+    Hu(:,:,1) = Fxx;
+    Hu(:,:,2) = Fxy;
+    Hu(:,:,3) = Fyy;
 
-% Update u
-DHu(:,:,1) = D(:,:,1).*Hu(:,:,1) + D(:,:,2).*Hu(:,:,2);
-DHu(:,:,2) = D(:,:,1).*Hu(:,:,2) + D(:,:,2).*Hu(:,:,3);
-DHu(:,:,3) = D(:,:,2).*Hu(:,:,2) + D(:,:,3).*Hu(:,:,3);
+    % Update u
+    DHu(:,:,1) = D(:,:,1).*Hu(:,:,1) + D(:,:,2).*Hu(:,:,2);
+    DHu(:,:,2) = D(:,:,1).*Hu(:,:,2) + D(:,:,2).*Hu(:,:,3);
+    DHu(:,:,3) = D(:,:,2).*Hu(:,:,2) + D(:,:,3).*Hu(:,:,3);
 
-trDHu = DHu(:,:,1) + DHu(:,:,3);
+    trDHu = DHu(:,:,1) + DHu(:,:,3);
 
-u = u + deltaS*trDHu;
+    u = u + deltaS*trDHu;
 
 end
 
@@ -103,7 +104,6 @@ str = sprintf('Noisy Image, multiplicative noise, SNR = %i dB',SNR);
 subplot(1,3,3);imshow(imgNoise2);title(str);
 
 %% Inpainting via Total Variation
-clear all
 close all
 clc
 

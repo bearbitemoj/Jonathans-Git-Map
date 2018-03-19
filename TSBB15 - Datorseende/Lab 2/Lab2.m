@@ -1,10 +1,13 @@
-initcourse TSBB15
+%% Add path
+clear all
+addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
 addpath forwardL
 addpath SCcar4
 
 %%
 close all
 clc
+
 %[I J dTrue] = getCameraman();
 I = im2double(imread('forwardL0.png'));
 J = im2double(imread('forwardL1.png'));

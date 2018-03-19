@@ -1,9 +1,9 @@
 %% Add path
-initcourse TSBB15
+clc
+clear all
+addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
 
 %% Estimate F using RANSAC and Gold standard Algorithm
-clear all
-close all
 clc
 
 im1 = rgb2gray(imread('img1.png'));
@@ -25,8 +25,8 @@ subplot(1,2,2);imshow(H2);
 H1(H1<1.64*10^3) = 0;
 H2(H2<1*10^3) = 0;
 
-Im1_supp = non_max_suppression(H1,3);
-Im2_supp = non_max_suppression(H2,3);
+Im1_supp = nonmaxsupp3x3(H1);
+Im2_supp = nonmaxsupp3x3(H2);
 
 figure(3);
 subplot(1,2,1); imshow(Im1_supp);
@@ -61,7 +61,7 @@ hold off
 regionL = cut_out_rois(im1,pointsLeft(:,1),pointsLeft (:,2),11);
 regionR = cut_out_rois(im2,pointsRight(:,1),pointsRight(:,2),11);
 
-indexPairs = matchRegions(regionL,regionR,pointsLeft,pointsRight);
+indexPairs = matchRegions(regionL,regionR);
 
 % Show correspondences
 figure(5);
@@ -71,7 +71,7 @@ hold off
 
 %RANSAC robust estimation
 [F,numOfInliers,sampleLeft,sampleRight,samplePairs,ransacStd, ransacResid, inlierRatio] = RANSAC(pointsLeft,pointsRight,indexPairs,15000);
-close all
+%close all
 
 figure(6);
 subplot(1,2,2);imshow(im2);
@@ -94,7 +94,6 @@ hold off
 [F_gs,goldResid,goldStd] = goldStandard(F,sampleLeft,sampleRight);
 
 %% Plot F_gs
-
 figure(8);
 subplot(1,2,2);imshow(im2);
 hold on
@@ -122,7 +121,7 @@ indexPairs = matchFeatures(features1,features2);
 matchedPoints1 = valid_points1(indexPairs(:,1),:);
 matchedPoints2 = valid_points2(indexPairs(:,2),:);
 
-figure; showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2);
+figure(9); showMatchedFeatures(I1,I2,matchedPoints1,matchedPoints2);
 
 
 

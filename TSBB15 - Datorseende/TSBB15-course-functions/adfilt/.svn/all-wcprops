@@ -1,0 +1,341 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/edu/!svn/ver/962/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt
+END
+tens2RGB.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tens2RGB.m
+END
+icread.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/icread.m
+END
+makeQResponses3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/makeQResponses3D.m
+END
+supsamp.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/supsamp.m
+END
+fixFilt2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/fixFilt2D.m
+END
+mysetup.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/mysetup.c
+END
+tensLP3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensLP3D.m
+END
+tensMap2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensMap2D.m
+END
+tens2RGB2.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tens2RGB2.c
+END
+tensShow3D_old.m
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensShow3D_old.m
+END
+tensShow3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensShow3D.m
+END
+syntFilt2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntFilt2D.m
+END
+msetup.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/msetup.c
+END
+mysetup.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/mysetup.m
+END
+tensMap.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensMap.m
+END
+seqenh2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/seqenh2D.m
+END
+mapplot.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/mapplot.m
+END
+msetup.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/msetup.m
+END
+showcol.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/showcol.m
+END
+tens2eig_old.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tens2eig_old.m
+END
+tensLP2D3.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensLP2D3.m
+END
+tensOrient3D_old.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensOrient3D_old.m
+END
+tens2eig.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tens2eig.m
+END
+tensOrient3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensOrient3D.m
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/Makefile
+END
+tensorshape3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensorshape3D.m
+END
+syntFilt2D2.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntFilt2D2.m
+END
+tensMap3D.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensMap3D.c
+END
+syntFilt2D3.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntFilt2D3.m
+END
+showseq.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/showseq.m
+END
+syntFilt3D.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntFilt3D.c
+END
+seqquad2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/seqquad2D.m
+END
+tensLP2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensLP2D.m
+END
+tensNorm2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensNorm2D.m
+END
+fixFilt3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/fixFilt3D.m
+END
+Contents.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/Contents.m
+END
+oldToolbox.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/oldToolbox.tar.gz
+END
+tensMap3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensMap3D.m
+END
+tensShow2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensShow2D.m
+END
+matrix9.ext
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/matrix9.ext
+END
+syntFilt3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntFilt3D.m
+END
+syntSlice3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/syntSlice3D.m
+END
+readbw.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/readbw.m
+END
+makeKernel3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/makeKernel3D.m
+END
+tensConv3.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensConv3.c
+END
+showbw.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/showbw.m
+END
+subsamp.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/subsamp.m
+END
+seqenh3D.m
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/seqenh3D.m
+END
+tens2RGB.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tens2RGB.c
+END
+fixFilt2D3.m
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/fixFilt2D3.m
+END
+tensOrient2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensOrient2D.m
+END
+tensorshape2D.m
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensorshape2D.m
+END
+imclamp.m
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/imclamp.m
+END
+tensConv3.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensConv3.m
+END
+gausskernel.m
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/gausskernel.m
+END
+tensMap2D.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/edu/!svn/ver/823/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/adfilt/tensMap2D.c
+END

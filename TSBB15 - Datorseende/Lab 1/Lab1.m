@@ -1,8 +1,11 @@
-initcourse TSBB15
+%% Add Path
+addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
 
 %% 3
+clear all
 close all
 clc
+
 [I J dTrue] = getCameraman();
 height = 70;
 width = 40;

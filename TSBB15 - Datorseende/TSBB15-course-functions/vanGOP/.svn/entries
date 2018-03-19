@@ -1,0 +1,54 @@
+8
+
+dir
+999
+https://svn.isy.liu.se/edu/TSBB05/2007-HT2/lab/edu_bb_ComputerVision/matlab/vanGOP
+https://svn.isy.liu.se/edu
+
+
+
+2007-10-25T12:03:58.353362Z
+823
+bjorn
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3e3ca77a-49e1-0310-8a44-da54427a2f19
+
+vanGOP.m
+file
+
+
+
+
+2007-10-25T12:12:16.000000Z
+f49d9064d4c6283b52cb3ec5537118f0
+2007-10-25T12:03:58.353362Z
+823
+bjorn
+has-props
+
+vanGOP_bw.m
+file
+
+
+
+
+2007-10-25T12:12:16.000000Z
+bb27221fe35dd5eb60c7ed357680964e
+2007-10-25T12:03:58.353362Z
+823
+bjorn
+has-props
+

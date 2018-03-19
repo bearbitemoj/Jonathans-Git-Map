@@ -1,5 +1,6 @@
-function [indexPairs] = matchRegions(regionL,regionR,pointsLeft,pointsRight)
-% Every row in points matches every column in region
+function [indexPairs] = matchRegions(regionL,regionR)
+% Calculate a distance matrix between the regions and take a joint min to
+% find index pairs.
 
 distanceMatrix = zeros(size(regionL,1),size(regionL,2));
 
