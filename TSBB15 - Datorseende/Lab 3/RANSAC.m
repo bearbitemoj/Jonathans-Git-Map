@@ -1,13 +1,13 @@
-function [bestF,bestNumOfInliers,bestSampleLeft,bestSampleRight,bestSamplePairs, bestStd,bestDistance,bestInlierRatio] = RANSAC(pointsLeft,pointsRight,indexPairs,N)
+function [bestF,bestNumOfInliers,bestSampleLeft,bestSampleRight,bestSamplePairs, bestStd,bestDistance,bestInlierRatio] = RANSAC(pointsLeft,pointsRight,indexPairs,iterations)
 % Ransac robust estimation
 % N is number of samples
 bestNumOfInliers = 0;
 bestF = 0;
 bestStd = 0;
 
-for i=1:N
+for i=1:iterations
     % Select random samples
-    sample = round(rand(10,1)*(size(indexPairs,1)-1))+1; %Farligt , kan bli samma punkter
+    sample = randperm(size(indexPairs,1),10)';
     samplePairs = indexPairs(sample,:);
 
     sampleLeft = pointsLeft(samplePairs(:,1),:);

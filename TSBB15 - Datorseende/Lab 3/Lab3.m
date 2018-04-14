@@ -1,6 +1,7 @@
 %% Add path
-clc
+close all
 clear all
+clc
 addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
 
 %% Estimate F using RANSAC and Gold standard Algorithm
@@ -58,7 +59,7 @@ hold on
 show_regions(pointsRight(:,1),pointsRight(:,2),9);
 hold off
 
-regionL = cut_out_rois(im1,pointsLeft(:,1),pointsLeft (:,2),11);
+regionL = cut_out_rois(im1,pointsLeft(:,1),pointsLeft(:,2),11);
 regionR = cut_out_rois(im2,pointsRight(:,1),pointsRight(:,2),11);
 
 indexPairs = matchRegions(regionL,regionR);
