@@ -30,7 +30,6 @@ void Lab_0::test_1(){
 
 void Lab_0::test_2(){
 	int a,b,c,d;
-
 	cout << "Enter four integers: ";
 	cin >> a;
 	cin >> b;
