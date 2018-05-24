@@ -1,10 +1,11 @@
 function T = calc_orientationTensor(filter_size,sigma,fx,fy)
-% function T = calc_orientationTensor(filter_size,sigma,fx,fy)
+% CALC_ORIENTATIONTENSOR
 %
-% filter_size is an integer
-% sigma is a double
-% fx is a MxN gradient matrix
-% fy is a MxN gradient matrix
+%    function T = calc_orientationTensor(filter_size,sigma,fx,fy)
+%    filter_size is an integer.
+%    sigma is a double.
+%    fx is a MxN gradient matrix.
+%    fy is a MxN gradient matrix.
 
 T=zeros(size(fx,1),size(fx,2),3);
 T(:,:,1)=fx.*fx;

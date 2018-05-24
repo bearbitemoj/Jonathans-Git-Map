@@ -1,4 +1,8 @@
 function [fx fy] = regDerivative(filter_size, sigma,im1,im2)
+% REGDERIVATIVE
+%
+%   [fx fy] = regDerivative(filter_size, sigma,im1,im2)
+
 lp=exp(-0.5*([-filter_size:filter_size]/sigma).^2);
 lp=lp/sum(lp); %Normalised Gaussian Filter
 

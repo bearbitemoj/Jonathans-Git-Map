@@ -1,4 +1,8 @@
 function [V,C] = LK_equation(filter_size,window_size,sigma1,sigma2,I,J)
+% LK_EQUATION
+%
+%   [V,C] = LK_equation(filter_size,window_size,sigma1,sigma2,I,J)
+
 [gx gy] = regDerivative(filter_size,sigma1,I,J);
 
 z1 = gx.*gx;

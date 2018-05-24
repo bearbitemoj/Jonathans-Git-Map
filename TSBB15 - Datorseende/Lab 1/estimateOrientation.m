@@ -1,4 +1,8 @@
-function z = estimateOrientation(std,gradX,gradY)
+function z = estimateOrientation(gradX,gradY)
+% ESTIMATEORIENTATION
+%
+%   z = estimateOrientation(gradX,gradY)
+
 Jx = gradX;
 Jy = gradY;
 z1 = Jx.*Jx;

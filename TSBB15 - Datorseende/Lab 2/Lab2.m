@@ -1,8 +1,7 @@
 %% Add path
 clear all
-addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
-addpath forwardL
-addpath SCcar4
+addpath(genpath('TSBB15-course-functions'));
+addpath(genpath('Lab 2'));
 
 %%
 close all

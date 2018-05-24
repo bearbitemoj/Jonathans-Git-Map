@@ -1,5 +1,7 @@
 function [fx fy] = regDerivative(filter_size, std,im)
-% function [fx fy] = regDerivative(filter_size, std,im)
+% REGDERIVATIVE
+%
+%    function [fx fy] = regDerivative(filter_size, std,im)
 %
 
 sigma=std;

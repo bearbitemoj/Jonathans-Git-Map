@@ -1,5 +1,6 @@
 %% Add Path
-addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
+addpath(genpath('TSBB15-course-functions'));
+addpath(genpath('Lab 1'));
 
 %% 3
 clear all
@@ -26,7 +27,7 @@ croptempJx = tempJx(row-height/2:row+height/2,col-width/2:col+width/2);
 croptempJy = tempJy(row-height/2:row+height/2,col-width/2:col+width/2);
 cropJ= tempJ(row-height/2:row+height/2,col-width/2:col+width/2);
 
-Z = estimateOrientation(1.6,croptempJx,croptempJy);
+Z = estimateOrientation(croptempJx,croptempJy);
 
 e = difference(cropI,cropJ,croptempJx,croptempJy);
 
@@ -55,10 +56,10 @@ cH = calcHarris(T,0.05);
 
 figure(2)
 hist(cH)
-threshold = cH > 2.56*10^-5;
+harris_mask = cH > 2.56*10^-5;
 
 Imm = ordfilt2(cH,9,ones(3)); 
-mask = threshold.*cH==Imm;
+mask = harris_mask.*cH==Imm;
 index = 10;
 mask(1:index,:) = 0;
 mask(end-index:end,:) = 0;
@@ -93,22 +94,23 @@ for j=1:9
         figure(1)
         %image(tens2RGB(T));axis image
         imshow(I);axis image
+        title(strcat('chessboard',{' '},num2str(j)))
         
         cH = calcHarris(T,0.05);
 
         %figure(2)
         %hist(cH)
-        threshold = cH > 0.000128;
+        harris_mask = cH > 0.000128;
 
         Imm = ordfilt2(cH,9,ones(3)); 
-        mask = threshold.*cH==Imm;
+        mask = harris_mask.*cH==Imm;
         index = 10;
         mask(1:index,:) = 0;
         mask(end-index:end,:) = 0;
         mask(:,1:index) = 0;
         mask(:,end-index:end) = 0;
         
-        [row2 col2] = find(mask)
+        [row2 col2] = find(mask);
         
         [vals index] = sort(cH(mask),'descend');
 
@@ -148,7 +150,7 @@ for j=1:9
             croptempJy = tempJy(row-height/2:row+height/2,col-width/2:col+width/2);
             cropJ= tempJ(row-height/2:row+height/2,col-width/2:col+width/2);
 
-            Z = estimateOrientation(1.6,croptempJx,croptempJy);
+            Z = estimateOrientation(croptempJx,croptempJy);
 
             e = difference(cropI,cropJ,croptempJx,croptempJy);
 
@@ -166,6 +168,7 @@ for j=1:9
     end
     
     figure(1);imshow(J);axis image;
+    title(strcat('chessboard',{' '},num2str(j+1)))
     hold on
     plot(col2,row2,'ro');
     hold off

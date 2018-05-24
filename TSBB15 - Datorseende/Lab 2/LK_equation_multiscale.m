@@ -1,4 +1,7 @@
 function [V C] = LK_equation_multiscale(filter_size,window_size,sigma1,sigma2,I,J,numberOfScales)
+% LK_EQUATION_MULTISCALE
+%
+%   [V C] = LK_equation_multiscale(filter_size,window_size,sigma1,sigma2,I,J,numberOfScales)
 
 tempJ = J;
 V = 0;
