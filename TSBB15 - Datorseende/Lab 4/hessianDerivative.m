@@ -1,6 +1,7 @@
 function [Fxx Fxy Fyy] = hessianDerivative(im)
-% function [fx fy] = regDerivative(im)
+% HESSIANDERIVATIVE 
 %
+%   [Fxx Fxy Fyy] = hessianDerivative(im)
 
 h1 = [0 0 0; 1 -2 1; 0 0 0]/4;
 h2 = [0.25 0 -0.25; 0 0 0; -0.25 0 0.25];

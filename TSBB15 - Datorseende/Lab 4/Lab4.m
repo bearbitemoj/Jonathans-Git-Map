@@ -1,6 +1,7 @@
 %% Add path
 clear all
-addpath(genpath('S:\Git repos\My Git Map\TSBB15 - Datorseende\TSBB15-course-functions'));
+addpath(genpath('TSBB15-course-functions'));
+addpath(genpath('Lab 4'));
 
 %% Anisotropic Diffusion
 close all
@@ -26,7 +27,7 @@ imgNoise2 = imnoise(img,'speckle',v/10^(SNR/10)); % multiplicative noise
 u = imgNoise;
 
 % Iterate
-for(i=1:iterations)
+for i=1:iterations
     
     % Compute orientation tensor
     [fx fy] = regDerivative(filter_size,sigma,u);
@@ -63,7 +64,7 @@ for(i=1:iterations)
     D(:,:,3) = modLambda1.*eigenVectors1(:,:,2).^2 + modLambda2.*eigenVectors2(:,:,2).^2;
 
     % Compute Hessian Hu
-    [Fxx Fxy Fyy] = hessianDerivative(u);
+    [Fxx,Fxy,Fyy] = hessianDerivative(u);
     Hu(:,:,1) = Fxx;
     Hu(:,:,2) = Fxy;
     Hu(:,:,3) = Fyy;
@@ -126,12 +127,12 @@ Xomega = g;
 Xomega(Xomega>0) = 1;
 
 % Iterate
-for(i=1:iterations)
+for i=1:iterations
     % Get derivatives
     [fx fy] = regDerivative(filter_size,sigma,u);
     
     % Compute Hessian Hu
-    [Fxx Fxy Fyy] = hessianDerivative(u);
+    [Fxx,Fxy,Fyy] = hessianDerivative(u);
     Hu(:,:,1) = Fxx;
     Hu(:,:,2) = Fxy;
     Hu(:,:,3) = Fyy;
