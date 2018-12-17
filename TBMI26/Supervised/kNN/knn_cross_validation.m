@@ -1,5 +1,5 @@
-function [k] = cross_validation(f,k_vector,Xt,Lt)
-%CROSS_VALIDATION Calculates the cross validation of a data set
+function [k] = knn_cross_validation(f,k_vector,Xt,Lt)
+%KNN_CROSS_VALIDATION Calculates the k-nn for a cross validation of a data set
 %   Inputs:
 %               f  - number of folds
 %               k_vector - A vector with different k values to be tested

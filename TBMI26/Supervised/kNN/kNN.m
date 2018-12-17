@@ -10,26 +10,19 @@ function [ labelsOut ] = kNN(X, k, Xt, Lt)
 %               LabelsOut = Vector with the classified labels
 
 n = size(X,2);
-m = size(Xt,2);
-d = zeros(n,m); % Distance matrix
 labelsOut  = zeros(n,1); % Predicted class vector
 classes = unique(Lt); % Unique classes
 numClasses = length(classes);  % How many classes are there
 
 % Calculate the euclidian distance for each feature
-d = pdist2(X',Xt'); %<-- Much faster than looping as below
-%for i=1:n
-%    for j=1:m
-%        d(i,j) = sqrt(sum((X(:,i)-Xt(:,j)).^2));
-%    end
-%end
+d = pdist2(X',Xt'); % Distance matrix
 
-% For every feature in X we calculate the class from the k-nearest
-% neighbours
+% For every feature in X, calculate the class from the k-nearest neighbours
 for i=1:n
     featureDistance = d(i,:);
     [~,index] = sort(featureDistance,'ascend');
 
+    % Retrieve the k-nearest neighbours
     k_nearest = zeros(k,1);
     for j=1:k
        k_nearest(j) = Lt(index(j));
